@@ -61,7 +61,7 @@ function reloj() {
         }
     }
     else {
-        console.log("ERROR: Your hour format is unsupported for this script of clock.\nSupported only 12h & 24h formats.")
+        console.error("ERROR: Your hour format is unsupported for this script of clock.\nSupported only 12h & 24h formats.")
     }
 }
 
