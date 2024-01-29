@@ -1,6 +1,8 @@
-let p = document.querySelector("p")
+let paragraphs = document.querySelectorAll("p")
 let button = document.querySelector("button")
 
-button.onclick = function(e){
-    p.style.backgroundColor = "green"
+button.onclick = function(event){
+    for (let i = 0; i < paragraphs.length; i++) {
+    paragraphs[i].style.backgroundColor = "green"
+    }
 }
