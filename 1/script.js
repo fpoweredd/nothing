@@ -13,6 +13,7 @@ function addTwoNums(a, b) {
 try {
     console.log(addTwoNums(4, 6))
     console.log(addTwoNums("sd", "6"))
-} catch (error) {
-    console.error(error)
+} catch (err) {
+    console.error(err)
+    document.getElementById("console")
 }
