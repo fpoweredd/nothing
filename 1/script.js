@@ -1,8 +1,21 @@
+const nextButton = document.getElementById("next")
+const prevButton = document.getElementById("previous")
+const img = document.getElementById("myimage")
+const imgArray = ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg"]
+let actualSlide = 0
 
-let button = document.querySelector("button")
-let div = document.querySelector("div")
-
-button.addEventListener("click", function(event){
-    document.querySelector("p").appendChild(document.createTextNode("New paragraph!"))
-    div.appendChild(document.createElement("p"))
+nextButton.addEventListener("click", function(){
+    actualSlide++
+    if (imgArray.length === actualSlide) {
+        actualSlide = 0
+    }
+    img.src = imgArray[actualSlide]
 })
+
+prevButton.onclick = function(){
+    actualSlide--
+    if (actualSlide < 0) {
+        actualSlide = imgArray.length - 1;
+    }
+    img.src = imgArray[actualSlide]
+}
