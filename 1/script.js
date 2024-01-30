@@ -11,11 +11,13 @@ nextButton.addEventListener("click", function(event){
     if (imgArray.length === actualSlide) {
         actualSlide = 0
     }
-    // img.src = imgArray[actualSlide]
     let newSlide = document.createElement("img")
     newSlide.src = imgArray[actualSlide]
     newSlide.className = "animation"
     document.getElementById("content").appendChild(newSlide)
+    if (document.getElementById("content").children.length > 2) {
+        document.getElementById("content").removeChild(document.getElementById("content").children[0])
+    }
 })
 
 prevButton.onclick = function(event){
@@ -24,10 +26,11 @@ prevButton.onclick = function(event){
     if (actualSlide < 0) {
         actualSlide = imgArray.length - 1
     }
-    // img.src = imgArray[actualSlide]
     let newSlide = document.createElement("img")
-    // not a final bcs we can look all time new image in html
     newSlide.src = imgArray[actualSlide]
     newSlide.className = "animation"
     document.getElementById("content").appendChild(newSlide)
+    if (document.getElementById("content").children.length > 2) {
+        document.getElementById("content").removeChild(document.getElementById("content").children[0])
+    }
 }
