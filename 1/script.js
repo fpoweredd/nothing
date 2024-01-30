@@ -18,6 +18,7 @@ nextButton.addEventListener("click", function(event){
     if (document.getElementById("content").children.length > 2) {
         document.getElementById("content").removeChild(document.getElementById("content").children[0])
     }
+    swapSlide()
 })
 
 prevButton.onclick = function(event){
@@ -26,6 +27,10 @@ prevButton.onclick = function(event){
     if (actualSlide < 0) {
         actualSlide = imgArray.length - 1
     }
+    swapSlide()
+}
+
+function swapSlide() {
     let newSlide = document.createElement("img")
     newSlide.src = imgArray[actualSlide]
     newSlide.className = "animation"
