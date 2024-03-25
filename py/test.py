@@ -1,64 +1,72 @@
-# def create_python_script(filename):
-#   comments = "# Start of a new Python program"
-#   with open(filename, 'w') as f:
-#     f.write(comments)
-#     filesize = f.tell()
-#   return(filesize)
+# import os
+# import csv
 
-# print(create_python_script("program.py"))
+# # Create a file with data in it
+# def create_file(filename):
+#     if not os.path.exists(filename):
+#         with open(filename, "w") as file:
+#             file.write("name,color,type\n")
+#             file.write("carnation,pink,annual\n")
+#             file.write("daffodil,yellow,perennial\n")
+#             file.write("iris,blue,perennial\n")
+#             file.write("poinsettia,red,perennial\n")
+#             file.write("sunflower,yellow,annual\n")
 
+# # Read the file contents and format the information about each row
+# def contents_of_file(filename):
+#     return_string = ""
 
+#     # Call the function to create the file if it doesn't exist
+#     create_file(filename)
+
+#     # Open the file
+#     with open(filename, "r+") as f: # yes, r+
+#         # Read the rows of the file into a dictionary
+#         content_reader = csv.DictReader(f)
+
+#         # Process each item of the dictionary
+#         for row in content_reader:
+#             return_string += "a {} {} is {}\n".format(row["color"], row["name"], row["type"])
+    
+#     return return_string
+
+# # Call the function
+# print(contents_of_file("flowers.csv"))
 
 
 
 # import os
+# import csv
 
-# def new_directory(directory, filename):
-#   # Before creating a new directory, check to see if it already exists
-#   if os.path.isdir(directory) == False: os.mkdir(directory)
+# Create a file with data in it
+def create_file(filename):
+  with open(filename, "w") as file:
+    file.write("name,color,type\n")
+    file.write("carnation,pink,annual\n")
+    file.write("daffodil,yellow,perennial\n")
+    file.write("iris,blue,perennial\n")
+    file.write("poinsettia,red,perennial\n")
+    file.write("sunflower,yellow,annual\n")
 
-#   # Create the new file inside of the new directory
-#   os.chdir(directory)
-#   with open (filename, 'w') as file:
-#     pass
+# Read the file contents and format the information about each row
+def contents_of_file(filename):
+  return_string = ""
 
-#   # Return the list of files in the new directory
-#   return os.listdir()
+  # Call the function to create the file 
+  create_file(filename)
 
-# print(new_directory("PythonPrograms", "script.py"))
+  # Open the file
+  with open(filename, "r") as f:
 
+    # Read the rows of the file
+    rows = csv.reader(f)
+    # Process each row
+    for row in rows:
+      name, color, typeflower = row
+      # Format the return string for data rows only
 
+      return_string += "a {} {} is {}\n".format(color, name, typeflower)
+  return return_string
 
-
-
-
-# import os
-# import datetime
-
-# def file_date(filename):
-#   # Create the file in the current directory
-#   with open(filename, 'w', encoding='utf-8') as f:
-#     timestamp = os.path.getmtime(filename)
-#   # Convert the timestamp into a readable format, then into a string
-#   mod_time = datetime.datetime.fromtimestamp(timestamp)
-#   # Return just the date portion 
-#   # Hint: how many characters are in “yyyy-mm-dd”? 
-#   return "{:%Y-%m-%d}".format(mod_time)
-
-# print(file_date("newfile.txt")) 
-# # Should be today's date in the format of yyyy-mm-dd
-
-
-
-
-
-import os
-def parent_directory():
-  # Create a relative path to the parent 
-  # of the current working directory 
-  relative_parent = os.path.join(os.getcwd(), '..')
-  absolute_path = os.path.abspath(relative_parent)
-  # Return the absolute path of the parent directory
-  return absolute_path
-
-print(parent_directory())
+#Call the function
+print(contents_of_file("flowers.csv"))
