@@ -1,72 +1,40 @@
-# import os
-# import csv
+# import re
+# def check_web_address(text):
+#   pattern = r"\w[.com|.org|.us]$"
+#   result = re.search(pattern, text, flags=re.IGNORECASE)
+#   return result != None
 
-# # Create a file with data in it
-# def create_file(filename):
-#     if not os.path.exists(filename):
-#         with open(filename, "w") as file:
-#             file.write("name,color,type\n")
-#             file.write("carnation,pink,annual\n")
-#             file.write("daffodil,yellow,perennial\n")
-#             file.write("iris,blue,perennial\n")
-#             file.write("poinsettia,red,perennial\n")
-#             file.write("sunflower,yellow,annual\n")
-
-# # Read the file contents and format the information about each row
-# def contents_of_file(filename):
-#     return_string = ""
-
-#     # Call the function to create the file if it doesn't exist
-#     create_file(filename)
-
-#     # Open the file
-#     with open(filename, "r+") as f: # yes, r+
-#         # Read the rows of the file into a dictionary
-#         content_reader = csv.DictReader(f)
-
-#         # Process each item of the dictionary
-#         for row in content_reader:
-#             return_string += "a {} {} is {}\n".format(row["color"], row["name"], row["type"])
-    
-#     return return_string
-
-# # Call the function
-# print(contents_of_file("flowers.csv"))
+# print(check_web_address("gmail.com")) # True
+# print(check_web_address("www@google")) # False
+# print(check_web_address("www.Coursera.org")) # True
+# print(check_web_address("web-address.com/homepage")) # False
+# print(check_web_address("My_Favorite-Blog.US")) # True
 
 
+# import re
+# def contains_acronym(text):
+#   pattern = r"\(\w{2,}\)" 
+#   result = re.search(pattern, text)
+#   return result != None
 
-# import os
-# import csv
+# print(contains_acronym("Instant messaging (IM) is a set of communication technologies used for text-based communication")) # True
+# print(contains_acronym("American Standard Code for Information Interchange (ASCII) is a character encoding standard for electronic communication")) # True
+# print(contains_acronym("Please do NOT enter without permission!")) # False
+# print(contains_acronym("PostScript is a fourth-generation programming language (4GL)")) # True
+# print(contains_acronym("Have fun using a self-contained underwater breathing apparatus (Scuba)!")) # True
 
-# Create a file with data in it
-def create_file(filename):
-  with open(filename, "w") as file:
-    file.write("name,color,type\n")
-    file.write("carnation,pink,annual\n")
-    file.write("daffodil,yellow,perennial\n")
-    file.write("iris,blue,perennial\n")
-    file.write("poinsettia,red,perennial\n")
-    file.write("sunflower,yellow,annual\n")
 
-# Read the file contents and format the information about each row
-def contents_of_file(filename):
-  return_string = ""
+# import re
 
-  # Call the function to create the file 
-  create_file(filename)
+# def correct_function(text):
+#   result = re.search(r" \d{5}", text)  # Corrected regex pattern with space
+#   return result is not None
 
-  # Open the file
-  with open(filename, "r") as f:
+# def check_zip_code(text):
+#   return correct_function(text)  # Call the correct_function
 
-    # Read the rows of the file
-    rows = csv.reader(f)
-    # Process each row
-    for row in rows:
-      name, color, typeflower = row
-      # Format the return string for data rows only
-
-      return_string += "a {} {} is {}\n".format(color, name, typeflower)
-  return return_string
-
-#Call the function
-print(contents_of_file("flowers.csv"))
+# # Call the check_zip_code function with test cases
+# print(check_zip_code("The zip codes for New York are 10001 thru 11104."))  # True
+# print(check_zip_code("90210 is a TV show"))  # False (no space before 90210)
+# print(check_zip_code("Their address is: 123 Main Street, Anytown, AZ 85258-0001."))  # True
+# print(check_zip_code("The Parliament of Canada is at 111 Wellington St, Ottawa, ON K1A0A9."))  # False
